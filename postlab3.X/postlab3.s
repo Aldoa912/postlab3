@@ -30,7 +30,7 @@ PROCESSOR 16F887
 ;******************************************************************************* 
 ; Variables    
 ;******************************************************************************* 
-PSECT udata_shr
+PSECT udata_bank0
  W_TEMP:
     DS 1
  STATUS_TEMP:
@@ -116,10 +116,10 @@ MAIN:
     BSF INTCON, 5	; Habilitando la interrupcion T0IE TMR0
     
     BSF INTCON, 7	; Habilitamos el GIE interrupciones globales
-    
+    CLRF CONTADOR
         
 LOOP:
-    INCF CONTADOR, F	; Incrementamos el Puerto C
+
     MOVF CONTADOR, W	; MOVEMOS LO QUE ESTE EN CONTADOR A W
     PAGESEL TABLA	; NOS UBICAMOS EN LA PAGINA DONDE SE ENCUENTRA LA TABLA
     CALL TABLA		; LLAMAMOS A LA TABLA
@@ -130,13 +130,14 @@ VERIFICACION:
     BTFSS STATUS, 2	; verificamos bandera z
     GOTO VERIFICACION
     CLRF CONT20MS
+    INCF CONTADOR, F	; Incrementamos el Puerto C
     GOTO LOOP		; Regresamos a la etiqueta LOOP
 
 ;******************************************************************************* 
 ; TABLA   
 ;******************************************************************************* 
 PSECT CODE, delta=2, abs
- ORG 0x0F
+ ORG 0x64
 TABLA:
     ADDWF PCL, F
     RETLW 0b0111111	;0
