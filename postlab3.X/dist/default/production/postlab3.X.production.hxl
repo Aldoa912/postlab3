@@ -11,13 +11,13 @@
   0h - 1h		(dist/default/production\postlab3.X.production.hex)
   8h - 2Bh		(dist/default/production\postlab3.X.production.hex)
   C8h - E9h		(dist/default/production\postlab3.X.production.hex)
-  200h - 279h		(dist/default/production\postlab3.X.production.hex)
+  200h - 289h		(dist/default/production\postlab3.X.production.hex)
   400Eh - 4011h		(dist/default/production\postlab3.X.production.hex)
  Unused ranges:
   2h - 7h
   2Ch - C7h
   EAh - 1FFh
-  27Ah - 400Dh
+  28Ah - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -41,7 +41,8 @@
 00000240 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000250 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000260 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000270 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
+00000270 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000280 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 00004010 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
