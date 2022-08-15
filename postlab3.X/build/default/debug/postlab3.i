@@ -2457,7 +2457,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.inc" 2 3
-# 12 "postlab3.s" 2
+# 11 "postlab3.s" 2
+
 ;*******************************************************************************
 ; Palabra de configuraciÃ³n
 ;*******************************************************************************
@@ -2488,6 +2489,8 @@ PSECT udata_bank0
     DS 1
  CONTADOR:
     DS 1
+ CONTADOR2:
+    DS 2
 ;*******************************************************************************
 ; Vector Reset
 ;*******************************************************************************
@@ -2539,6 +2542,7 @@ MAIN:
 
     BANKSEL TRISC
     CLRF TRISC ; Limpiar el registro TRISB
+    CLRF TRISD
 
     BANKSEL ANSEL
     CLRF ANSEL
@@ -2556,6 +2560,7 @@ MAIN:
 
     BANKSEL PORTC
     CLRF PORTC ; Se limpia el puerto C
+    CLRF PORTD
     CLRF CONT20MS ; Se limpia la variable cont50ms
 
     MOVLW 178
@@ -2566,26 +2571,44 @@ MAIN:
 
     BSF INTCON, 7 ; Habilitamos el ((INTCON) and 07Fh), 7 interrupciones globales
     CLRF CONTADOR
+    CLRF CONTADOR2
 
 LOOP:
-    INCF CONTADOR, F ; Incrementamos el Puerto C
     MOVF CONTADOR, W ; MOVEMOS LO QUE ESTE EN CONTADOR A W
     PAGESEL TABLA ; NOS UBICAMOS EN LA PAGINA DONDE SE ENCUENTRA LA TABLA
     CALL TABLA ; LLAMAMOS A LA TABLA
     MOVWF PORTC ;MOVEMOS LOS DATOS DE W AL PORTC
+    GOTO VERIFICACION2
 VERIFICACION:
     MOVF CONT20MS, W
     SUBLW 50
     BTFSS STATUS, 2 ; verificamos bandera z
     GOTO VERIFICACION
     CLRF CONT20MS
+    INCF CONTADOR, F ; Incrementamos el Puerto C
     GOTO LOOP ; Regresamos a la etiqueta LOOP
+VERIFICACION2:
+    MOVF CONTADOR, W
+    SUBLW 10
+    BTFSS STATUS, 2
+    GOTO VERIFICACION
+    MOVLW 0b0111111
+    MOVWF PORTC
+    CLRF CONTADOR
+    GOTO DISPLAY
+DISPLAY:
+    INCF CONTADOR2, F
+    MOVF CONTADOR2, W ; MOVEMOS LO QUE ESTE EN CONTADOR A W
+    PAGESEL TABLA
+    CALL TABLA ; LLAMAMOS A LA TABLA
+    MOVWF PORTD ;MOVEMOS LOS DATOS DE W AL PORTC
+    GOTO VERIFICACION
 
 ;*******************************************************************************
 ; TABLA
 ;*******************************************************************************
 PSECT CODE, delta=2, abs
- ORG 0x0F
+ ORG 0x64
 TABLA:
     ADDWF PCL, F
     RETLW 0b0111111 ;0

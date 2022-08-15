@@ -9,13 +9,15 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 1h		(dist/default/debug\postlab3.X.debug.hex)
-  8h - 3Fh		(dist/default/debug\postlab3.X.debug.hex)
-  200h - 253h		(dist/default/debug\postlab3.X.debug.hex)
+  8h - 2Bh		(dist/default/debug\postlab3.X.debug.hex)
+  C8h - E9h		(dist/default/debug\postlab3.X.debug.hex)
+  200h - 279h		(dist/default/debug\postlab3.X.debug.hex)
   400Eh - 4011h		(dist/default/debug\postlab3.X.debug.hex)
  Unused ranges:
   2h - 7h
-  40h - 1FFh
-  254h - 400Dh
+  2Ch - C7h
+  EAh - 1FFh
+  27Ah - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -26,15 +28,20 @@
 ----------------------------------------------------------
 00000000 | H1 H1 -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+----------------------------------------------------------
+000000C0 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+000000D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000000E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00000200 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000210 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000220 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000230 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000240 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000250 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+00000250 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000260 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000270 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 00004010 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
